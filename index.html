@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Secteur Textile Tunisien 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🇹🇳 Tableau de Bord - Secteur Textile Tunisien</h1>
+            <p>Analyse Stratégique et Prospective 2025 | Données Actualisées Mai 2025</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('vue-ensemble')">📊 Vue d'Ensemble</button>
+            <button class="nav-tab" onclick="showTab('performance')">📈 Performance</button>
+            <button class="nav-tab" onclick="showTab('marches')">🌍 Marchés</button>
+            <button class="nav-tab" onclick="showTab('swot')">⚖️ Analyse SWOT</button>
+            <button class="nav-tab" onclick="showTab('tendances')">🔮 Tendances</button>
+            <button class="nav-tab" onclick="showTab('recommandations')">💡 Recommandations</button>
+        </nav>
+
+        <!-- Vue d'Ensemble -->
+        <div id="vue-ensemble" class="tab-content active">
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">💰</div>
+                        <div class="card-title">Exportations Totales</div>
+                    </div>
+                    <div class="metric-value">2 998,3 MDT</div>
+                    <div class="metric-change positive">+0,28% (897,9 M€)</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Janvier-Avril 2025</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon success">👥</div>
+                        <div class="card-title">Emplois Directs</div>
+                    </div>
+                    <div class="metric-value">153 000</div>
+                    <div class="metric-change positive">+2% vs 2024</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">70% femmes</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon warning">🏭</div>
+                        <div class="card-title">Entreprises Agréées</div>
+                    </div>
+                    <div class="metric-value">1 902</div>
+                    <div class="metric-change neutral">Stable</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">39% totalement exportatrices</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">🎯</div>
+                        <div class="card-title">Position UE Workwear</div>
+                    </div>
+                    <div class="metric-value">#1</div>
+                    <div class="metric-change positive">17,4% parts de marché</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Leader européen</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon success">📊</div>
+                        <div class="card-title">Taux de Couverture</div>
+                    </div>
+                    <div class="metric-value">129%</div>
+                    <div class="metric-change negative">-4 points</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Balance commerciale positive</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon danger">📈</div>
+                        <div class="card-title">Croissance Volume</div>
+                    </div>
+                    <div class="metric-value">+4,95%</div>
+                    <div class="metric-change positive">Exportations</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Malgré baisse valeur</p>
+                </div>
+            </div>
+
+            <!-- Graphique Vue d'Ensemble -->
+            <div class="chart-container">
+                <h3 class="chart-title">🎯 Indicateurs Clés de Performance</h3>
+                <canvas id="kpiChart" class="chart"></canvas>
+            </div>
+
+            <!-- Répartition Sectorielle -->
+            <div class="chart-container">
+                <h3 class="chart-title">🏭 Structure du Secteur par Emplois</h3>
+                <canvas id="secteurChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Performance -->
+        <div id="performance" class="tab-content">
+            <div class="chart-container">
+                <h3 class="chart-title">📈 Évolution des Exportations par Produit (Jan-Avr 2025)</h3>
+                <canvas id="produitsChart" class="chart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h3 class="chart-title">📊 Performance Détaillée par Produit</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Valeur (MDT)</th>
+                            <th>Évolution Valeur</th>
+                            <th>Volume (tonnes)</th>
+                            <th>Évolution Volume</th>
+                            <th>Tendance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pantalons Jeans</strong></td>
+                            <td>385,2</td>
+                            <td><span class="metric-change negative">-2,42%</span></td>
+                            <td>3 895</td>
+                            <td><span class="metric-change positive">+4,20%</span></td>
+                            <td>📊 Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vêtements de travail</strong></td>
+                            <td>329,8</td>
+                            <td><span class="metric-change positive">+5,62%</span></td>
+                            <td>3 625</td>
+                            <td><span class="metric-change positive">+8,72%</span></td>
+                            <td>📈 Croissance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pantalons ville</strong></td>
+                            <td>254,8</td>
+                            <td><span class="metric-change neutral">-0,15%</span></td>
+                            <td>2 039</td>
+                            <td><span class="metric-change positive">+5,62%</span></td>
+                            <td>📊 Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>T-shirts</strong></td>
+                            <td>199,6</td>
+                            <td><span class="metric-change negative">-29,75%</span></td>
+                            <td>2 496</td>
+                            <td><span class="metric-change negative">-36,98%</span></td>
+                            <td>📉 Déclin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pullovers/gilets</strong></td>
+                            <td>147,0</td>
+                            <td><span class="metric-change negative">-14,15%</span></td>
+                            <td>914</td>
+                            <td><span class="metric-change negative">-14,33%</span></td>
+                            <td>📉 Baisse</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lingerie femme</strong></td>
+                            <td>128,0</td>
+                            <td><span class="metric-change negative">-12,80%</span></td>
+                            <td>487</td>
+                            <td><span class="metric-change positive">+2,83%</span></td>
+                            <td>📊 Mitigé</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chemises</strong></td>
+                            <td>123,8</td>
+                            <td><span class="metric-change negative">-9,18%</span></td>
+                            <td>715</td>
+                            <td><span class="metric-change negative">-8,88%</span></td>
+                            <td>📉 Baisse</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon success">🏆</div>
+                        <div class="card-title">Top 100 Entreprises</div>
+                    </div>
+                    <div class="metric-value">1 865,5 MDT</div>
+                    <div class="metric-change positive">+7,26%</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">62% des exportations totales</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">🔗</div>
+                        <div class="card-title">Entreprises Intégrées</div>
+                    </div>
+                    <div class="metric-value">200</div>
+                    <div class="metric-change positive">79% exports</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Intégration verticale forte</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon warning">💼</div>
+                        <div class="card-title">Investissements</div>
+                    </div>
+                    <div class="metric-value">39,4 MDT</div>
+                    <div class="metric-change negative">-9,96%</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">24 dossiers approuvés</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marchés -->
+        <div id="marches" class="tab-content">
+            <div class="chart-container">
+                <h3 class="chart-title">🌍 Performance par Marché d'Exportation</h3>
+                <canvas id="marchesChart" class="chart"></canvas>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon danger">🇫🇷</div>
+                        <div class="card-title">France</div>
+                    </div>
+                    <div class="metric-value">-9,07%</div>
+                    <div class="metric-change negative">Volume -6,43%</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Marché traditionnel en recul</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon warning">🇮🇹</div>
+                        <div class="card-title">Italie</div>
+                    </div>
+                    <div class="metric-value">-7,51%</div>
+                    <div class="metric-change positive">Volume +10,75%</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Baisse valeur, hausse volume</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">🇩🇪</div>
+                        <div class="card-title">Allemagne</div>
+                    </div>
+                    <div class="metric-value">-10,51%</div>
+                    <div class="metric-change positive">Volume +12,99%</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Potentiel 160M€ supplémentaires</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon warning">🇧🇪</div>
+                        <div class="card-title">Belgique</div>
+                    </div>
+                    <div class="metric-value">-8,84%</div>
+                    <div class="metric-change negative">En recul</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Marché Benelux à développer</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">🎯 Concentration Géographique des Exportations</h3>
+                <canvas id="concentrationChart" class="chart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h3 class="chart-title">🌟 Opportunités de Diversification</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Région/Marché</th>
+                            <th>Potentiel</th>
+                            <th>Avantages</th>
+                            <th>Segments Prioritaires</th>
+                            <th>Action Requise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🇩🇪 Allemagne</strong></td>
+                            <td>160M€</td>
+                            <td>Qualité, proximité</td>
+                            <td>Workwear, technique</td>
+                            <td>Prospection active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇸🇪 Scandinavie</strong></td>
+                            <td>Élevé</td>
+                            <td>Demande durable</td>
+                            <td>Mode éthique</td>
+                            <td>Certifications</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🌍 Afrique (ZLECAF)</strong></td>
+                            <td>Très élevé</td>
+                            <td>Proximité culturelle</td>
+                            <td>Tous segments</td>
+                            <td>Stratégie régionale</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇺🇸 Amérique du Nord</strong></td>
+                            <td>Moyen</td>
+                            <td>Niches premium</td>
+                            <td>Textiles techniques</td>
+                            <td>Partenariats</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SWOT Analysis -->
+        <div id="swot" class="tab-content">
+            <div class="swot-grid">
+                <div class="swot-card forces">
+                    <h3 class="swot-title">💪 Forces</h3>
+                    <ul class="swot-list">
+                        <li>Expertise historique de plus de 70 ans</li>
+                        <li>Main-d'œuvre qualifiée (153 000 emplois)</li>
+                        <li>Proximité géographique Europe (2-3 jours transport)</li>
+                        <li>Coûts logistiques 40% inférieurs à l'Asie</li>
+                        <li>Standards européens maîtrisés</li>
+                        <li>Flexibilité pour petites séries</li>
+                        <li>Position de leader en workwear (17,4% UE)</li>
+                        <li>Infrastructures portuaires performantes</li>
+                    </ul>
+                </div>
+
+                <div class="swot-card faiblesses">
+                    <h3 class="swot-title">⚠️ Faiblesses</h3>
+                    <ul class="swot-list">
+                        <li>Concentration géographique (80% vers UE)</li>
+                        <li>Dépendance matières premières (1,4 Mrd dinars)</li>
+                        <li>Modèle sous-traitance (85% façonnage)</li>
+                        <li>Vieillissement du parc machines</li>
+                        <li>Retard digitalisation</li>
+                        <li>Innovation insuffisante (0,8% CA en R&D)</li>
+                        <li>Bureaucratie administrative</li>
+                        <li>Difficultés d'accès au financement PME</li>
+                    </ul>
+                </div>
+
+                <div class="swot-card opportunites">
+                    <h3 class="swot-title">🚀 Opportunités</h3>
+                    <ul class="swot-list">
+                        <li>Nearshoring européen (+15% demandes)</li>
+                        <li>Textile technique (8% croissance annuelle)</li>
+                        <li>Mode durable (73% consommateurs prêts à payer plus)</li>
+                        <li>Marché allemand (160M€ potentiel)</li>
+                        <li>Textiles intelligents et médicaux</li>
+                        <li>Économie circulaire et recyclage</li>
+                        <li>Marchés africains (ZLECAF)</li>
+                        <li>Digitalisation et e-commerce B2B</li>
+                    </ul>
+                </div>
+
+                <div class="swot-card menaces">
+                    <h3 class="swot-title">⚡ Menaces</h3>
+                    <ul class="swot-list">
+                        <li>Concurrence asiatique (coûts ultra-bas)</li>
+                        <li>Normes environnementales UE</li>
+                        <li>CBAM (ajustement carbone frontières)</li>
+                        <li>Étiquetage environnemental obligatoire 2026</li>
+                        <li>Automatisation globale</li>
+                        <li>Instabilité macroéconomique</li>
+                        <li>Concurrence régionale (Turquie, Maroc)</li>
+                        <li>Ralentissement économique européen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tendances -->
+        <div id="tendances" class="tab-content">
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">🔬</div>
+                        <div class="card-title">Textile Technique</div>
+                    </div>
+                    <div class="metric-value">180 Mrd $</div>
+                    <div class="metric-change positive">+8% annuel</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">42 entreprises tunisiennes</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon success">🌱</div>
+                        <div class="card-title">Mode Durable</div>
+                    </div>
+                    <div class="metric-value">73%</div>
+                    <div class="metric-change positive">Consommateurs UE</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">Prêts à payer plus</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon warning">🚚</div>
+                        <div class="card-title">Nearshoring</div>
+                    </div>
+                    <div class="metric-value">+15%</div>
+                    <div class="metric-change positive">Demandes relocalisation</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">2-3 jours vs 45 jours Asie</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon primary">🤖</div>
+                        <div class="card-title">Industrie 4.0</div>
+                    </div>
+                    <div class="metric-value">IoT</div>
+                    <div class="metric-change positive">Digitalisation</div>
+                    <p style="margin-top: 10px; color: var(--text-light);">MES, ERP, traçabilité</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">🔮 Tendances Stratégiques du Secteur</h3>
+                <canvas id="tendancesChart" class="chart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h3 class="chart-title">🎯 Applications du Textile Technique</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Secteur</th>
+                            <th>Applications</th>
+                            <th>Croissance</th>
+                            <th>Opportunités Tunisie</th>
+                            <th>Investissement Requis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🏥 Médical</strong></td>
+                            <td>Masques, blouses, implants</td>
+                            <td>Très forte</td>
+                            <td>Post-COVID, proximité UE</td>
+                            <td>Moyen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🚗 Automobile</strong></td>
+                            <td>Sièges, filtres, isolation</td>
+                            <td>Forte</td>
+                            <td>Constructeurs européens</td>
+                            <td>Élevé</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🦺 Protection</strong></td>
+                            <td>EPI, vêtements sécurité</td>
+                            <td>Stable</td>
+                            <td>Expertise workwear</td>
+                            <td>Faible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🏗️ BTP</strong></td>
+                            <td>Géotextiles, infrastructure</td>
+                            <td>Modérée</td>
+                            <td>Projets régionaux</td>
+                            <td>Moyen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🌾 Agriculture</strong></td>
+                            <td>Bâches, textiles agricoles</td>
+                            <td>Forte</td>
+                            <td>Secteur agricole local</td>
+                            <td>Faible</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">🌱 Certifications Durabilité</h3>
+                <canvas id="certificationsChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recommandations -->
+        <div id="recommandations" class="tab-content">
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">🔧 Modernisation Technologique</h3>
+                    <ul class="recommendation-list">
+                        <li>Programme national de mise à niveau</li>
+                        <li>Smart factories avec IoT et MES</li>
+                        <li>Centres de démonstration technologique</li>
+                        <li>Formation continue aux technologies 4.0</li>
+                        <li>Partenariats avec fournisseurs européens</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">🔗 Intégration Verticale</h3>
+                    <ul class="recommendation-list">
+                        <li>Développement filières amont (tissage)</li>
+                        <li>Zones industrielles spécialisées "Textile 4.0"</li>
+                        <li>Pacte National Textile Circulaire</li>
+                        <li>Certifications groupées (GOTS, Oeko-Tex)</li>
+                        <li>Hubs logistiques intégrés</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">📢 Marketing & Commercial</h3>
+                    <ul class="recommendation-list">
+                        <li>Stratégie marque "Tunisia: Smart & Sustainable"</li>
+                        <li>Diversification géographique (Scandinavie, Allemagne)</li>
+                        <li>Positionnement premium workwear et jeans</li>
+                        <li>Plateformes e-commerce B2B spécialisées</li>
+                        <li>Marketing territorial des avantages concurrentiels</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">🏭 Optimisation Écosystème</h3>
+                    <ul class="recommendation-list">
+                        <li>Consolidation cluster Monastir-Ksar Hellal</li>
+                        <li>Incubateurs startups textiles</li>
+                        <li>Centres de services partagés (R&D, formation)</li>
+                        <li>Guichet unique pour investissements</li>
+                        <li>Partenariats stratégiques EURATEX</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">🔬 Innovation & R&D</h3>
+                    <ul class="recommendation-list">
+                        <li>Centres de recherche collaborative</li>
+                        <li>Développement textiles intelligents</li>
+                        <li>Fonds innovation textile</li>
+                        <li>Partenariats université-industrie</li>
+                        <li>Participation programmes européens Horizon</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3 class="recommendation-title">🎯 Objectifs 2030</h3>
+                    <ul class="recommendation-list">
+                        <li>25 000 emplois supplémentaires</li>
+                        <li>160M€ d'exports additionnels (Allemagne)</li>
+                        <li>Hub textile méditerranéen de référence</li>
+                        <li>Leader production intelligente et durable</li>
+                        <li>"Made in Tunisia" synonyme de qualité</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">📊 Plan d'Action Prioritaire</h3>
+                <canvas id="planActionChart" class="chart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h3 class="chart-title">⏱️ Roadmap de Transformation 2025-2030</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Période</th>
+                            <th>Objectifs Clés</th>
+                            <th>Investissement</th>
+                            <th>Impact Attendu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Phase 1: Fondations</strong></td>
+                            <td>2025-2026</td>
+                            <td>Modernisation, certifications</td>
+                            <td>200M€</td>
+                            <td>+5% productivité</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 2: Expansion</strong></td>
+                            <td>2026-2028</td>
+                            <td>Diversification, innovation</td>
+                            <td>300M€</td>
+                            <td>+15 000 emplois</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 3: Leadership</strong></td>
+                            <td>2028-2030</td>
+                            <td>Hub méditerranéen</td>
+                            <td>150M€</td>
+                            <td>+10 000 emplois</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
